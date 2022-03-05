@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8"/>
+        <title>Enter number</title>
+    </head>
+    <body>
+        Enter flight-number: <br>
+        <input id="flight-number-input" type="text" size="100"><br>
+        <input id="flight-number-submit" type="button" value="Enter">
+        <script>
+            document.querySelector('#flight-number-input').focus();
+            document.querySelector("#flight-number-input").onkeyup = function(e){
+                if(e.keyCode == 13){
+                    document.querySelector("#flight-number-submit").click();
+                }
+            }
+            
+            document.querySelector("#flight-number-submit").onclick = function(e){
+                var flightNumber = document.querySelector("#flight-number-input").value;
+                window.location.pathname = 'control/pilot/?flightNumber='+flightNumber+'/';
+            }
+
+
+
+        </script>
+    </body>
+</html>

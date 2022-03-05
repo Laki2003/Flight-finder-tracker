@@ -1,0 +1,18 @@
+{
+    "aircraft_icao": "LJ35",
+    "airline_icao": "GFD",
+    "alt": 845,
+    "dir": 310,
+    "flag": "DE",
+    "flight_icao": "GFD93",
+    "flight_number": "93",
+    "hex": "3CD06A",
+    "lat": 50.87,
+    "lng": 6.7,
+    "reg_number": "D-CGFQ",
+    "speed": 405,
+    "squawk": "1372",
+    "status": "en-route",
+    "updated": 1641821271,
+    "v_speed": 2.9
+}
