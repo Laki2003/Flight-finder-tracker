@@ -8,33 +8,12 @@
         <title>Flight</title>
     </head>
     <body>
-
+        {{flightNumber}}
         <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
         <label class="btn btn-outline-danger" for="danger-outlined">Error</label>
       
     <script>
-        flightNumber
-        const warningSocket = new WebSocket(
-            'ws://' + window.location.host + "ws/chat/"+flightNumber + '/'
-            );
-        
-        warningSocket.onmessage = function(e){
-            const data = JSON.parse(e.data);
-
-        }
-
-        warningSocket.onclose = function(e){
-            console.error("Lost connection!");
-        }
-
-        document.querySelector(".btn-check").onclick = function(e){
-            warningSocket.send(JSON.stringify({
-                'flightNumber': flightNumber
-            }));
-
-        };
-
-        
+                
     </script>
     </body>
 </html>

@@ -1,6 +1,6 @@
 import requests
 import json
-from graph import Graph
+from flights.flights.graph import Graph
 #params = {
  #   'api_key': '2cb005fd-df55-4f4d-b798-b07534695216',
 #    "icao_code": "EDI",

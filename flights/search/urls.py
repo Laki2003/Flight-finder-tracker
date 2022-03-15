@@ -4,7 +4,8 @@ from . import views
 
 urlpatterns = [
         path('', views.index, name= 'index'),
-        path('addFlight/', views.createFlight, name = 'createFlight')
+        path('addFlight/', views.create_flight, name = 'createFlight'),
+        path('createFlightPost/', views.create_flight_post, name="createFlightPost")
        
 
 ]
