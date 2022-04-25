@@ -5,5 +5,14 @@
         <title>Flight search</title>
     </head>
     <body>
-        Hello
+        <form method="GET" action="/search/results/">
+            {% csrf_token %}
+        <input type="text" name="od">
+        <input type="text" name="do">
+        <input type="date" name="startDate" required>
+      
+        <button type="submit">Search</button>    
+        </form>
         </body>
+
+        </html>

@@ -1,6 +1,5 @@
 from venv import create
 from django.db import models
-from numpy import True_
 
 class Flight(models.Model):
     sifraLeta = models.CharField(max_length = 30, primary_key=True)

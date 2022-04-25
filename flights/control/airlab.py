@@ -2,51 +2,57 @@ import requests
 import json
 
 
-def liveFlights(number):
-    
 
+
+
+def findFlight(iata):
 
     params = {
-    'api_key': '2cb005fd-df55-4f4d-b798-b07534695216',
-    'flight_icao': number
-    
+        'api_key': '0146375f-70c0-4723-a882-767093b36f4f',
+       'flight_iata': iata
     }
-    method = 'ping'
+
+    method = 'get'
     api_base = 'https://airlabs.co/api/v9/flight?'
     api_result = requests.get(api_base+method, params)
-    api_response = api_result.json()
+    try:
+     api_response = api_result.json()['response']
+    except KeyError:
+        return None
+
+    print(api_response)
+
+    return api_response
 
 
-    print(json.dumps(api_response, indent=4, sort_keys=True))
-
-
-
-
-
-
-def findAirport(longitude, latitude, distance):
-    g = Graph()
-    g.add_vertex("plane")  
+def findNearAirports(flight):
+   
+    
     params = {
-        'api_key': '2cb005fd-df55-4f4d-b798-b07534695216',
-        'lat': latitude,
-        'lng': longitude,
-        'distance': distance
+        'api_key': '0146375f-70c0-4723-a882-767093b36f4f',
+        'lat': flight['lat'],
+        'lng': flight['lng'],
+        'distance': 200
+
 
     }
-    method = 'ping'
+    method = 'get'
     api_base = 'https://airlabs.co/api/v9/nearby?'
     api_result = requests.get(api_base+method, params)
     api_response = api_result.json()['response']['airports']
-    
-    for i in api_response:
-             g.add_edge("plane", i["name"], i["distance"]+i["popularity"]/10000)
-    
-    for v in g:
-        for w in v.get_connections():
-            vid = v.get_name()
-            wid = w.get_name()
-            print(vid, wid, v.get_weight(w))
+    print(api_response)
+    return api_response
 
+def getAirportInfo(iataCode):
 
-findAirport( -84.325283,40.039549, 200)
+    params = {
+        'api_key': '0146375f-70c0-4723-a882-767093b36f4f',
+        'iata_code': iataCode,
+        '_fields': "name, lat, lng"
+    }
+    method = 'get'
+    api_base = 'https://airlabs.co/api/v9/airports?'
+    airport = requests.get(api_base+method, params).json()['response'][0]
+    print(airport)
+    return airport
+

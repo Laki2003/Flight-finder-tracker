@@ -8,10 +8,13 @@
         <title>Flight</title>
     </head>
     <body>
-        {{flightNumber}}
-        <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
-        <label class="btn btn-outline-danger" for="danger-outlined">Error</label>
       
+        <form method="GET" action="/control/control">
+        <input type="hidden" value="{{ iataCode }}" name="iataCode">
+        <input type="submit" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
+        <label class="btn btn-outline-danger" for="danger-outlined">Error</label>
+      </form>
+    
     <script>
                 
     </script>
